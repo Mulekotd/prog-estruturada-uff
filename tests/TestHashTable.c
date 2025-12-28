@@ -7,7 +7,7 @@ int main() {
     HashTable *table = malloc(sizeof(HashTable));
 
     table->size = 4;
-    table->buckets = calloc(table->size, sizeof(Entry*));
+    table->buckets = calloc((size_t)table->size, sizeof(Entry*));
 
     set(table, "LUCAS", 15);
     set(table, "MIKE", 14);
@@ -19,6 +19,9 @@ int main() {
 
     if (found) printf("Valor: %d\n", value);
     else printf("Não encontrado\n");
+
+    // Limpeza da memória alocada
+    destroy_table(table);
 
     return 0;
 }

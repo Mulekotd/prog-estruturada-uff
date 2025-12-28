@@ -20,7 +20,7 @@ int main() {
     printf("Árvore binária:\n\n");
     view(root, 0);
 
-    destroy(root);
+    destroy_tree(root);
     root = NULL;
 
     return 0;

@@ -3,16 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void destroy(BinaryTree *node) {
-    if (node == NULL)
-        return;
-
-    destroy(node->left);
-    destroy(node->right);
- 
-    free(node);
-}
-
 void insertion(BinaryTree **node, int value) {
     if (*node == NULL) {
         *node = (BinaryTree *)malloc(sizeof(BinaryTree));
@@ -48,4 +38,14 @@ void view(BinaryTree *node, int level) {
 
     // Depois imprime a subárvore esquerda
     view(node->left, level + 1);
+}
+
+void destroy_tree(BinaryTree *node) {
+    if (node == NULL)
+        return;
+
+    destroy_tree(node->left);
+    destroy_tree(node->right);
+ 
+    free(node);
 }

@@ -8,7 +8,7 @@ typedef struct BinaryTree {
 } BinaryTree;
 
 void insertion(BinaryTree **node, int value);
-void destroy(BinaryTree *node);
 void view(BinaryTree *node, int level);
+void destroy_tree(BinaryTree *node);
 
 #endif
