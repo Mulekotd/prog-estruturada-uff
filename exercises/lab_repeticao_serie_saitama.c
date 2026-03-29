@@ -6,7 +6,7 @@ int main()
     int n, m;
     double serie = 0;
     
-    scanf("%d%d", &n, &m);
+    scanf("%d %d", &n, &m);
 
     for (double i = 1.0; i <= n; i++)
     {

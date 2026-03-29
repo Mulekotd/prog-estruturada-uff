@@ -7,7 +7,7 @@ int main()
     int condition;
     double r1, r2;
 
-    scanf("%d%d%d", &a, &b, &c);
+    scanf("%d %d %d", &a, &b, &c);
     
     int discriminant = pow(b, 2) - 4 * a * c;
     

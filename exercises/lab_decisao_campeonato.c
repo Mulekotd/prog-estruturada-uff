@@ -5,10 +5,10 @@ int main()
     float m1, c1, m2, c2, m3, c3, m4, c4;
     int g1, g2, g3, g4, g5, g6, f1, f2, p1, p2;
 
-    scanf("%f%f", &m1, &c1);
-    scanf("%f%f", &m2, &c2);
-    scanf("%f%f", &m3, &c3);
-    scanf("%f%f", &m4, &c4);
+    scanf("%f %f", &m1, &c1);
+    scanf("%f %f", &m2, &c2);
+    scanf("%f %f", &m3, &c3);
+    scanf("%f %f", &m4, &c4);
 
     g1 = (int)((2 * m1 * c2) / (m1 + m2 + c1 + c2));
     g2 = (int)((2 * m2 * c1) / (m1 + m2 + c1 + c2));

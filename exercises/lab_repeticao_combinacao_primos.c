@@ -3,7 +3,7 @@
 int main()
 {
     int n = -1;
-    int counter = 0;
+    int count = 0;
 
     do scanf("%d", &n); while (n < 0);
 
@@ -36,11 +36,11 @@ int main()
         if (isPrimeP1 && isPrimeP2)
         {
             printf("%d pode ser escrito como %d + %d.\n", n, p1, p2);
-            counter++;
+            count++;
         }
     }
 
-    printf("%d\n", counter);
+    printf("%d\n", count);
 
     return 0;
 }
