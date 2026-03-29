@@ -3,12 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void insertion(BinaryTree **node, int value) {
-    if (*node == NULL) {
+void insertion(BinaryTree **node, int value)
+{
+    if (*node == NULL)
+    {
         *node = (BinaryTree *)malloc(sizeof(BinaryTree));
 
-        if (*node == NULL)
-            return;
+        if (*node == NULL) return;
 
         (*node)->value = value;
         (*node)->left = NULL;
@@ -17,21 +18,19 @@ void insertion(BinaryTree **node, int value) {
         return;
     }
 
-    if (value < (*node)->value) { insertion(&(*node)->left, value); }
-    else if (value > (*node)->value) { insertion(&(*node)->right, value); }
+    if (value < (*node)->value) insertion(&(*node)->left, value);
+    else if (value > (*node)->value) insertion(&(*node)->right, value);
 }
 
-void view(BinaryTree *node, int level) {
-    if (node == NULL)
-        return;
+void view(BinaryTree *node, int level)
+{
+    if (node == NULL) return;
 
     // Primeiro imprime a subárvore direita
     view(node->right, level + 1);
 
     // Indentação proporcional ao nível
-    for (int i = 0; i < level; i++) {
-        printf("    ");
-    }
+    for (int i = 0; i < level; i++) printf("    ");
 
     // Imprime o valor do nó
     printf("%d\n", node->value);
@@ -40,9 +39,9 @@ void view(BinaryTree *node, int level) {
     view(node->left, level + 1);
 }
 
-void destroy_tree(BinaryTree *node) {
-    if (node == NULL)
-        return;
+void destroy_tree(BinaryTree *node)
+{
+    if (node == NULL) return;
 
     destroy_tree(node->left);
     destroy_tree(node->right);

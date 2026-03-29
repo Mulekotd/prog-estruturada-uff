@@ -2,34 +2,35 @@
 
 int main() 
 {
-    int horas;
-    double salarioBruto, salarioLiquido, imposto;
+    int hours;
+    double grossWage, netWage, tax;
     
-    scanf("%d", &horas);
-    salarioBruto = horas * 12;
+    scanf("%d", &hours);
+
+    grossWage = hours * 12;
     
-    if (horas > 40)
+    if (hours > 40)
     {
-        double extra = (horas - 40) * (12 * 1.5);
-        salarioBruto += extra;
+        double extra = (hours - 40) * (12 * 1.5);
+        grossWage += extra;
     }
 
-    if (salarioBruto <= 300) imposto = salarioBruto * 0.15;
-    else if (salarioBruto > 300 && salarioBruto <= 450)
+    if (grossWage <= 300) tax = grossWage * 0.15;
+    else if (grossWage > 300 && grossWage <= 450)
     {
-        imposto = 300 * 0.15;
-        imposto += (salarioBruto - 300) * 0.2;
+        tax = 300 * 0.15;
+        tax += (grossWage - 300) * 0.2;
     } else
     {
-        imposto = 450 * 0.2;
-        imposto += (salarioBruto - 450) * 0.25;
+        tax = 450 * 0.2;
+        tax += (grossWage - 450) * 0.25;
     }
 
-    salarioLiquido = salarioBruto - imposto;
+    netWage = grossWage - tax;
 
-    printf("Salário bruto: %.2f\n", salarioBruto);
-    printf("Imposto: %.2f\n", imposto);
-    printf("Salário líquido: %.2f\n", salarioLiquido);
+    printf("Salário bruto: %.2f\n", grossWage);
+    printf("Imposto: %.2f\n", tax);
+    printf("Salário líquido: %.2f\n", netWage);
 
     return 0;
 }

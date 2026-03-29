@@ -2,7 +2,8 @@
 
 #include "../include/BinaryTree.h"
 
-int main() {
+int main()
+{
     BinaryTree *root = NULL;
 
     insertion(&root, 50);

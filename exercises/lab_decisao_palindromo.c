@@ -2,15 +2,16 @@
 
 int main()
 {
-    int input;
+    int number;
     int a, b, c, d;
 
-    scanf("%d", &input);
+    scanf("%d", &number);
 
-    a = input % 10;
-    b = (input / 10) % 10;
-    c = (input / 1000) % 10;
-    d = (input / 10000) % 10;
+    // Pega os digitos da direita para esquerda ignorando o centro
+    a = number % 10;           // 1o
+    b = (number / 10) % 10;    // 2o
+    c = (number / 1000) % 10;  // 4o
+    d = (number / 10000) % 10; // 5o
 
     if (a == d && b == c) printf("Sim\n");
     else printf("Não\n");

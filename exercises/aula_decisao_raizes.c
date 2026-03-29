@@ -4,31 +4,31 @@
 int main()
 {
     int a, b, c;
-    int condicao;
-    double raiz1, raiz2;
+    int condition;
+    double r1, r2;
 
     scanf("%d%d%d", &a, &b, &c);
     
-    int descriminante = (b*b) - 4*a*c;
+    int discriminant = pow(b, 2) - 4 * a * c;
     
-    if (descriminante == 0) condicao = 0;
-    else if (descriminante > 0) condicao = 1;
-    else condicao = -1;
+    if (discriminant == 0) condition = 0;
+    else if (discriminant > 0) condition = 1;
+    else condition = -1;
 
-    switch (condicao)
+    switch (condition)
     {
         case 0:
-            raiz1 = (-b / 2.0) * a;
-            printf("x: %2.f", raiz1);
+            r1 = (-b / 2.0) * a;
+            printf("x: %2.f\n", r1);
             break;
         case 1:
-            raiz1 = (-b + sqrt(descriminante)) / 2.0 * a;
-            raiz2 = (-b - sqrt(descriminante)) / 2.0 * a;
-            printf("x1: %2.f, x2: %2.f", raiz1, raiz2);
+            r1 = (-b + sqrt(discriminant)) / 2.0 * a;
+            r2 = (-b - sqrt(discriminant)) / 2.0 * a;
+            printf("x1: %2.f, x2: %2.f\n", r1, r2);
             break;
         case -1:
         default:
-            printf("sem raízes reais");
+            printf("sem raízes reais\n");
             break;
     }
 

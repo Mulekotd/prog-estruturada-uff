@@ -1,5 +1,5 @@
-#include <math.h>
 #include <stdio.h>
+#include <math.h>
 
 int main()
 {
@@ -8,12 +8,12 @@ int main()
     
     scanf("%d%d", &n, &m);
 
-    for (int i = 1; i <= n; i++)
+    for (double i = 1.0; i <= n; i++)
     {
-        for (int j = 1; j <= m; j++)
+        for (double j = 1.0; j <= m; j++)
         {
-            double numerator = pow((double)i, 2.0) * j;
-            double denominator = pow(3.0, (double)i) * ((j * pow(3.0, (double)i) + (i * pow(3.0, (double)j))));
+            double numerator = pow(i, 2.0) * j;
+            double denominator = pow(3.0, i) * ((j * pow(3.0, i) + (i * pow(3.0, j))));
             serie += numerator / denominator;
         }
     }

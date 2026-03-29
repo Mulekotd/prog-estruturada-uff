@@ -3,7 +3,8 @@
 
 #include "../include/HashTable.h"
 
-int main() {
+int main()
+{
     HashTable *table = malloc(sizeof(HashTable));
 
     table->size = 4;
