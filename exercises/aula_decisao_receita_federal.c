@@ -3,7 +3,7 @@
 int main() 
 {
     int hours;
-    double grossWage, netWage, tax;
+    double grossWage = 0, netWage = 0, tax = 0;
     
     scanf("%d", &hours);
 
