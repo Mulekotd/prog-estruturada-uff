@@ -6,7 +6,7 @@ int main()
 
     do scanf("%d", &n); while (n < 0);
 
-    int v1[n];
+    int A[n];
     int count = 0;
 
     for (int i = 2; i <= n; i++)
@@ -23,13 +23,13 @@ int main()
         
         if (isPrime)
         {
-            v1[count] = i;
+            A[count] = i;
             ++count;
         }
     }
 
     for (int i = 0; i < count; i++)
-        printf("%d ", v1[i]);
+        printf("%d ", A[i]);
     
     printf("\n");
 

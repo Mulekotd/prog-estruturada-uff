@@ -6,9 +6,7 @@ int main()
 
     do scanf("%d %d", &n, &m); while (n < 0 || m < 0);
 
-    int A[n];
-    int B[m];
-    int C[n + m];
+    int A[n]; int B[m]; int C[n + m];
 
     printf("A: ");
     for (int x = 0; x < n; x++)

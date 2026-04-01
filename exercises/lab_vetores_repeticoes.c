@@ -7,25 +7,25 @@ int main()
     printf("n: ");
     scanf("%d", &n);
 
-    int v1[n];
+    int A[n];
 
-    printf("Digite uma sequencia de %d números inteiros: ", n);
+    printf("Digite uma sequência de %d números inteiros: ", n);
     for (int i = 0; i < n; i++)
-        scanf("%d", &v1[i]);
+        scanf("%d", &A[i]);
     
     for (int i = 0; i < n; i++)
     {
-        int curr = v1[i];
+        int curr = A[i];
         int count = 1;
 
-        if (v1[i] == -1)
+        if (A[i] == -1)
             continue;;
 
         for (int j = i + 1; j < n; j++)
         {
-            if (v1[j] == curr)
+            if (A[j] == curr)
             {
-                v1[j] = -1;
+                A[j] = -1;
                 count++;
             }
         }

@@ -6,18 +6,18 @@ int main()
 
     scanf("%d", &n);
 
-    int v1[n]; int v2[n]; int sum[n];
+    int A[n]; int B[n]; int sum[n];
 
-    printf("v1 = ");
+    printf("A = ");
     for (int i = 0; i < n; i++)
-        scanf("%d", &v1[i]);
+        scanf("%d", &A[i]);
     
-    printf("v2 = ");
+    printf("B = ");
     for (int i = 0; i < n; i++)
-        scanf("%d", &v2[i]);
+        scanf("%d", &B[i]);
 
     for (int i = 0; i < n; i++)
-        sum[i] = v1[i] + v2[i];
+        sum[i] = A[i] + B[i];
 
     for (int i = 0; i < n; i++)
         printf("%d ", sum[i]);

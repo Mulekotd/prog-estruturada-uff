@@ -6,22 +6,23 @@ int main()
 
     do scanf("%d %d", &n, &m); while (n < 0 || m < 0);
 
-    int v1[n]; int v2[m];
+    int A[n]; int B[m];
     
     for (int i = 0; i < n; i++)
-        scanf("%d", &v1[i]);
+        scanf("%d", &A[i]);
 
     for (int i = 0; i < m; i++)
-        scanf("%d", &v2[i]);
+        scanf("%d", &B[i]);
 
     int count = 0;
+    
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            if (v1[i] == v2[j])
+            if (A[i] == B[j])
             {
-                printf("%d, ", v1[i]);
+                printf("%d, ", A[i]);
                 count++;
                 break;
             }
