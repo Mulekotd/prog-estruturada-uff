@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-int min(int *v, int n)
+int min(int *vector, int n)
 {
-    int min = v[0];
+    int min = vector[0];
 
     for (int i = 1; i < n; i++)
-        if (min > v[i]) min = v[i];
+        if (min > vector[i]) min = vector[i];
 
     for (int i = 0; i < n; i++)
-        v[i] = v[i] - min;
+        vector[i] = vector[i] - min;
     
     return min;
 }
