@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int min_element(int *v, int n)
+int min(int *v, int n)
 {
     int min = v[0];
 

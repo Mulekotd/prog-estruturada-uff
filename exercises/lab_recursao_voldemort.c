@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-int calculaVoldemort(int start, int end, int a, int b, int c)
+int calculate(int start, int end, int a, int b, int c)
 {
     if (start == end) return c;
 
     int next = (2 * c) - b - a;
 
-    return calculaVoldemort(start + 1, end, b, c, next);
+    return calculate(start + 1, end, b, c, next);
 }
 
 int voldemort(int n)
@@ -16,7 +16,7 @@ int voldemort(int n)
 
     int a = 1, b = 1, c = 1;
     
-    return calculaVoldemort(3, n, a, b, c);
+    return calculate(3, n, a, b, c);
 }
 
 int main()

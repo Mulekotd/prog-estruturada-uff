@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int primo(int num)
+int isPrime(int num)
 {
     if (num < 2)
         return 0;
@@ -27,7 +27,7 @@ void mersenne()
     
     for (int i = 2; i < n; i++) 
     {
-        if (!primo(i)) continue;
+        if (!isPrime(i)) continue;
         
         for (int j = 0; j < i; j++)
         {

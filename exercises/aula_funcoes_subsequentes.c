@@ -1,4 +1,4 @@
-int checa(int t1, int v1[t1], int t2, int v2[t2])
+int verify(int t1, int v1[t1], int t2, int v2[t2])
 {
 	if (t2 > t1)
 		return 0;

@@ -4,6 +4,7 @@
 int armstrong(int n)
 {
     int digit, sum, number;
+    
     sum = 0;
     number = n;
 

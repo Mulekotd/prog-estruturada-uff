@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int proximoGranizo(int n)
+int next(int n)
 {
     if (n % 2 == 0)
         return n / 2;
@@ -17,15 +17,15 @@ void granizo(int n)
 
     printf(", ");
     
-    granizo(proximoGranizo(n));
+    granizo(next(n));
 }
 
-int contaGranizo(int n)
+int count(int n)
 {
     if (n == 1)
         return 1;
 
-    return 1 + contaGranizo(proximoGranizo(n));
+    return 1 + count(next(n));
 }
 
 int main()
@@ -35,7 +35,7 @@ int main()
     do scanf("%d", &n); while (n <= 0);
 
     granizo(n);
-    printf("\ntamanho = %d\n", contaGranizo(n));
+    printf("\ntamanho = %d\n", count(n));
 
     return 0;
 }

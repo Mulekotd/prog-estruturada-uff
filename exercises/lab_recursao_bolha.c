@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void bolhaRec(int n, int v[n])
+void bubbleSort(int n, int v[n])
 {
     if (n <= 1) return;
 
@@ -14,10 +14,10 @@ void bolhaRec(int n, int v[n])
         }
     }
 
-    bolhaRec(n - 1, v);
+    bubbleSort(n - 1, v);
 }
 
-void imprime(int n, int v[n], int index)
+void display(int n, int v[n], int index)
 {
     printf("%d", v[index]);
     
@@ -25,7 +25,7 @@ void imprime(int n, int v[n], int index)
 
     printf(", ");
 
-    imprime(n, v, index + 1);
+    display(n, v, index + 1);
 }
 
 int main()
@@ -44,13 +44,13 @@ int main()
     }
 
     printf("\nvetor\nv = { ");
-    imprime(n, v, 0);
+    display(n, v, 0);
     printf(" }\n");
 
-    bolhaRec(n, v);
+    bubbleSort(n, v);
 
     printf("bolha recursiva\nv = { ");
-    imprime(n, v, 0);
+    display(n, v, 0);
     printf(" }\n");
 
     return 0;

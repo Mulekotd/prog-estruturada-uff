@@ -9,6 +9,4 @@ Exemplo de compilação de código utilizando o GCC.
 ```bash
 gcc -Wall exercises/decisao_verificar_triangulo.c -o build/decisao_verificar_triangulo
 gcc -Wall exercises/decisao_raizes.c -o build/decisao_raizes -lm
-
-gcc src/BinaryTree.c tests/TestBinaryTree.c -Iinclude -o build/binary_tree
 ```

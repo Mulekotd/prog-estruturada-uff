@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int contaDig(int num)
+int count(int num)
 {
     if (num == 0)
         return 0;
@@ -8,7 +8,7 @@ int contaDig(int num)
     int curr = num % 10;
     int rest = num / 10;
 
-    return curr + contaDig(rest);
+    return curr + count(rest);
 }
 
 int main()
@@ -17,7 +17,7 @@ int main()
 
     do scanf("%d", &n); while (n <= 0);
 
-    int result = contaDig(n);
+    int result = count(n);
     printf("%d\n", result);
 
     return 0;
