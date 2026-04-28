@@ -140,6 +140,7 @@ void rotate_left(vector_t *vec, int k)
 
     k %= n;
 
+    // Rotaciona por simetria
     reverse(vec, 0, k - 1);
     reverse(vec, k, n - 1);
     reverse(vec, 0, n - 1);

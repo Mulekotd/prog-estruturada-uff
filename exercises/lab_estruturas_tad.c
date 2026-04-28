@@ -105,6 +105,9 @@ void loop()
         actions(option, vec, isRunning);
     }
 
+    int sum = 1 * vec->v[0] + 2 * vec->v[1] + 3 * vec->v[2] + 4 * vec->v[3] + 5 * vec->v[4];
+    
+    printf("Soma final: %d\n", sum);
     delete_vector(vec);
 }
 
