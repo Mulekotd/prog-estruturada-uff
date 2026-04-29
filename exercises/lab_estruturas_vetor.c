@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tad.h"
+#include "vector.h"
 
 void menu()
 {
@@ -13,13 +13,16 @@ void menu()
     printf("6) Inverter\n");
     printf("7) Rotacionar\n");
     printf("8) Ordenar\n");
-    printf("10) Sair\n");
+    printf("9) Duplicados\n");
+    printf("10) Somar Par Ordenado\n");
+    printf("11) Sair\n");
     printf("------------\n\n");
 }
 
-void actions(int option, vector_t *vec, int isRunning)
+void actions(int option, vector_t *vec, int *isRunning)
 {
-    int element, index, k;
+    int element, index;
+    int k, s;
 
     switch (option)
     {
@@ -59,7 +62,7 @@ void actions(int option, vector_t *vec, int isRunning)
             break;
         case 6: // Inverter vetor
             print_vector(vec);
-            reverse(vec, 0, 0);
+            reverse(vec, 0, vec->length - 1);
             print_vector(vec);
             break;
         case 7: // Rotacionar o vetor k vezes
@@ -74,8 +77,17 @@ void actions(int option, vector_t *vec, int isRunning)
             sort(vec);
             print_vector(vec);
             break;
-        case 10:
-            isRunning = 0;
+        case 9: // Verificar elementos repetidos no vetor
+            print_vector(vec);
+            check_repeated(vec);
+            break;
+        case 10: // Encontra pares de elementos no vetor onde a soma dá S
+            printf("Soma: ");
+            scanf("%d", &s);
+            find_pairs_sums(vec, s);
+            break;
+        case 11: // Encerrar programa
+            *isRunning = 0;
             break;
         default:
             break;
@@ -89,8 +101,13 @@ void loop()
 
     int pre_vector[7] = { 8, 3, 7, 12, 6, 9, 10 };
     vector_t *vec = allocate_vector(max);
-    vec->v = pre_vector;
-    vec->v = max;
+
+    for (int i = 0; i < lenght; i++)
+    {
+        vec->v[i] = pre_vector[i];
+    }
+
+    vec->max = max;
     vec->length = lenght;
 
     while (isRunning)
@@ -102,7 +119,7 @@ void loop()
         scanf("%d", &option);
         printf("\n");
 
-        actions(option, vec, isRunning);
+        actions(option, vec, &isRunning);
     }
 
     int sum = 1 * vec->v[0] + 2 * vec->v[1] + 3 * vec->v[2] + 4 * vec->v[3] + 5 * vec->v[4];

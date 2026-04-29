@@ -1,4 +1,4 @@
-#include "tad.h"
+#include "vector.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -163,6 +163,70 @@ void sort(vector_t *vec)
                 vec->v[j] = next;
                 vec->v[j + 1] = curr;
             }
+        }
+    }
+}
+
+void check_repeated(vector_t *vec)
+{
+    int n = vec->length;
+    int printing = 0;
+
+    printf("Duplicados = ");
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (vec->v[i] == vec->v[i + 1])
+        {
+            if (!printing)
+            {
+                printf("%d ", vec->v[i]);
+                printing = 1;
+            }
+        }
+        else
+        {
+            printing = 0;
+        }
+    }
+}
+
+void find_pairs_sums(vector_t *vec, int s)
+{
+    int n = vec->length;
+    int max = 0;
+
+    // Descobrir o maior elemento
+    for (int i = 0; i < n; i++)
+    {
+        if (vec->v[i] > max)
+        {
+            max = vec->v[i];
+        }
+    }
+
+    // Vetor auxiliar (inicializado com 0)
+    int aux[max + 1];
+    
+    for (int i = 0; i <= max; i++)
+        aux[i] = 0;
+
+    // Marcar presença dos elementos
+    for (int i = 0; i < n; i++)
+        aux[vec->v[i]] = 1;
+
+    printf("Pares = ");
+
+    // Econtrar os pares
+    for (int i = 0; i < n; i++)
+    {
+        int x = vec->v[i];
+        int y = s - x;
+
+        // Verifica se y é válido e existe no vetor
+        if (y >= 0 && y <= max && aux[y] == 1 && x < y)
+        {
+            printf("(%d, %d) ", x, y);
         }
     }
 }

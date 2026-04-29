@@ -1,5 +1,5 @@
-#ifndef TAD_H
-#define TAD_H
+#ifndef VECTOR_H
+#define VECTOR_H
 
 struct vector_s
 {
@@ -17,6 +17,8 @@ void smart_search(vector_t *vec, int element);
 void reverse(vector_t *vec, int start, int end);
 void rotate_left(vector_t *vec, int k);
 void sort(vector_t *vec);
+void check_repeated(vector_t *vec);
+void find_pairs_sums(vector_t *vec, int s);
 void delete_vector(vector_t* vec);
 
 #endif
