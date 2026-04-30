@@ -1,4 +1,4 @@
-#include "point.h"
+#include "../include/point.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,7 +9,7 @@ point_t *create_point(float x, float y)
     if (point == NULL)
     {
         printf("Memória insuficiente!\n");
-        exit(1);
+        return NULL;
     }
 
     point->x = x;

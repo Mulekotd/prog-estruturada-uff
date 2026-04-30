@@ -1,4 +1,4 @@
-#include "vector.h"
+#include "../include/vector.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -37,6 +37,19 @@ void print_vector(vector_t *vec)
     printf(" }");
     
     printf("\n");
+}
+
+int max_element(vector_t *vec)
+{
+    int n = vec->length;
+    int max = vec->v[0];
+
+    for (int i = 1; i < n; i++)
+    {
+        if (max < vec->v[i]) max = vec->v[i];
+    }
+
+    return max;
 }
 
 void insert_element(vector_t *vec, int element, int index)

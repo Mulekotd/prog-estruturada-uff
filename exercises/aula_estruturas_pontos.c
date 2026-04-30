@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "point.h"
+#include "include/point.h"
 
 int main()
 {

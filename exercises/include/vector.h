@@ -9,7 +9,8 @@ struct vector_s
 }; typedef struct vector_s vector_t;
 
 vector_t* allocate_vector(int max);
-void print_vector(vector_t* vec);
+void print_vector(vector_t *vec);
+int max_element(vector_t *vec);
 void add_element(vector_t *vec, int element);
 void insert_element(vector_t *vec, int element, int index);
 void remove_element(vector_t *vec, int index);

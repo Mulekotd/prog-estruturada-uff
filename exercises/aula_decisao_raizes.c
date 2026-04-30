@@ -19,12 +19,12 @@ int main()
     {
         case 0:
             r1 = (-b / 2.0) * a;
-            printf("x: %2.f\n", r1);
+            printf("x: %.2f\n", r1);
             break;
         case 1:
             r1 = (-b + sqrt(discriminant)) / 2.0 * a;
             r2 = (-b - sqrt(discriminant)) / 2.0 * a;
-            printf("x1: %2.f, x2: %2.f\n", r1, r2);
+            printf("x1: %.2f, x2: %.2f\n", r1, r2);
             break;
         case -1:
         default:
