@@ -77,6 +77,28 @@ list *remove_duplicates(list *L)
     return L;
 }
 
+list *remove_element(list *L, int element)
+{
+    // Caso base
+    if (L == NULL)
+        return NULL;
+
+    // Se o nó atual deve ser removido
+    if (L->value == element)
+    {
+        list *temp = L->next;
+
+        free(L);
+
+        return remove_element(temp, element);
+    }
+
+    // Processa o restante da lista
+    L->next = remove_element(L->next, element);
+
+    return L;
+}
+
 list *concat_list(list *L1, list *L2)
 {
     if (L1 == NULL)
