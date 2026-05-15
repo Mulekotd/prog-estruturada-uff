@@ -4,12 +4,17 @@ struct Node
 	struct Node *next;
 }; typedef struct Node list;
 
+int length(list *L);
+
 list *allocate_node(void);
-list *insert_list(list *L, int element);
 list *delete_list(list *L);
-list *remove_list_by_pos(list *L, int pos);
-list *concat_list(list *L1, list *L2);
 list *remove_duplicates(list *L);
 list *remove_element(list *L, int element);
-void print_k_list(list *L, int k);
+list *insert_list(list *L, int element);
+list *concat_list(list *L1, list *L2);
+list *merge_list(list *L1, list *L2);
+list *rotate_list(list *L, int k);
+
+void recursive_print(list *L);
 void print_list(list *L);
+void print_k_list(list *L, int k);

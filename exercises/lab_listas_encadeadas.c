@@ -75,7 +75,7 @@ void question_3()
 
 void question_4()
 {
-    printf("\nRemover um elemento da lista.\n");
+    printf("\nRemover um elemento da list.\n");
 
     list *L = NULL;
     L = insert_list(L, 4);
@@ -91,6 +91,57 @@ void question_4()
     L = remove_element(L, 4);
     print_list(L);
     
+    L = delete_list(L);
+}
+
+void question_5()
+{
+    printf("\nMesclagem entre duas listas encadeadas.\n");
+
+    list *L1 = NULL;
+    L1 = insert_list(L1, 28);
+    L1 = insert_list(L1, 15);
+    L1 = insert_list(L1, 10);
+    L1 = insert_list(L1, 8);
+    L1 = insert_list(L1, 2);
+    print_list(L1);
+
+    list *L2 = NULL;
+    L2 = insert_list(L2, 14);
+    L2 = insert_list(L2, 12);
+    L2 = insert_list(L2, 7);
+
+    print_list(L2);
+    list *L3 = merge_list(L1, L2);
+
+    print_list(L3);
+    L3 = delete_list(L3);
+}
+
+void question_6()
+{
+    printf("\nRotaciona lista encadeada k vezes à direita.\n");
+
+    list *L = NULL;
+    L = insert_list(L, 5);
+    L = insert_list(L, 4);
+    L = insert_list(L, 3);
+    L = insert_list(L, 2);
+    L = insert_list(L, 1);
+    print_list(L);
+
+    L = rotate_list(L, 1);
+    print_list(L);
+    
+    L = rotate_list(L, 3);
+    print_list(L);
+
+    L = rotate_list(L, 5);
+    print_list(L);
+
+    L = rotate_list(L, 6);
+    print_list(L);
+
     L = delete_list(L);
 }
 
@@ -138,6 +189,52 @@ void challenge_1()
     L1 = delete_list(L1);
 }
 
+void challenge_2()
+{
+    printf("\nSegundo desafio.\n");
+
+    list *L1 = NULL;
+    L1 = insert_list(L1, 19);
+    L1 = insert_list(L1, 16);
+    L1 = insert_list(L1, 14);
+    L1 = insert_list(L1, 14);
+    L1 = insert_list(L1, 11);
+    L1 = insert_list(L1, 9);
+    L1 = insert_list(L1, 7);
+    L1 = insert_list(L1, 7);
+    L1 = insert_list(L1, 5);
+    L1 = insert_list(L1, 2);
+    
+    list *L2 = NULL;
+    L2 = insert_list(L2, 20);
+    L2 = insert_list(L2, 18);
+    L2 = insert_list(L2, 17);
+    L2 = insert_list(L2, 15);
+    L2 = insert_list(L2, 13);
+    L2 = insert_list(L2, 13);
+    L2 = insert_list(L2, 10);
+    L2 = insert_list(L2, 6);
+    L2 = insert_list(L2, 4);
+    L2 = insert_list(L2, 3);
+    
+    list *L3 = NULL;
+    L3 = merge_list(L1, L2);
+    L3 = remove_duplicates(L3);
+    L3 = remove_element(L3, 7);
+    L3 = insert_list(L3, 12);
+    L3 = remove_element(L3, 14);
+    L3 = insert_list(L3, 8);
+    L3 = remove_element(L3, 3);
+    L3 = insert_list(L3, 5);
+    print_list(L3);
+
+    int final_value = 1 * (L3->value) + 2 * (L3->next->value) + 3 * (L3->next->next->value);
+    final_value = final_value + 4 * (L3->next->next->next->value) + 5 * (L3->next->next->next->next->value);
+    printf("valor final = %d\n", final_value);
+
+    L3 = delete_list(L3);
+}
+
 int main()
 {
     question_1();
@@ -145,6 +242,9 @@ int main()
     question_3();
     question_4();
     challenge_1();
+    question_5();
+    challenge_2();
+    question_6();
 
     return 0;
 }

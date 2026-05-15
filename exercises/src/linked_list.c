@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include "../include/linked_list.h"
 
+int length(list *L)
+{
+    if (L == NULL)
+        return 0;
+
+    return 1 + length(L->next);
+}
+
 list *allocate_node()
 {
     list *aux;
@@ -9,17 +17,6 @@ list *allocate_node()
     aux->next = NULL;
 
     return aux;
-}
-
-list *insert_list(list *L, int element)
-{
-    list *node = allocate_node();
-    node->value = element;
-    node->next = L;
-
-    L = node;
-
-    return L;
 }
 
 list *delete_list(list *L)
@@ -32,27 +29,6 @@ list *delete_list(list *L)
     free(L);
 
     return NULL;
-}
-
-list *remove_list_by_pos(list *L, int pos)
-{
-    if (L == NULL || pos < 0)
-    {
-        printf("Posição inválida!\n");
-        return L;
-    }
-
-    // Caso base: remove nó atual
-    if (pos == 0)
-    {
-        list *temp = L->next;
-        free(L);
-        return temp;
-    }
-
-    L->next = remove_list_by_pos(L->next, pos - 1);
-
-    return L;
 }
 
 list *remove_duplicates(list *L)
@@ -99,6 +75,17 @@ list *remove_element(list *L, int element)
     return L;
 }
 
+list *insert_list(list *L, int element)
+{
+    list *node = allocate_node();
+    node->value = element;
+    node->next = L;
+
+    L = node;
+
+    return L;
+}
+
 list *concat_list(list *L1, list *L2)
 {
     if (L1 == NULL)
@@ -107,6 +94,88 @@ list *concat_list(list *L1, list *L2)
     L1->next = concat_list(L1->next, L2);
 
     return L1;
+}
+
+list *merge_list(list *L1, list *L2)
+{
+    // Casos base
+    if (L1 == NULL)
+        return L2;
+
+    if (L2 == NULL)
+        return L1;
+
+    // Escolhe o menor elemento
+    if (L1->value < L2->value)
+    {
+        L1->next = merge_list(L1->next, L2);
+        return L1;
+    }
+    else
+    {
+        L2->next = merge_list(L1, L2->next);
+        return L2;
+    }
+}
+
+list *rotate_list(list *L, int k)
+{
+    if (k <= 0)
+    {
+        printf("k inválido.\n");
+        return L;
+    }
+
+    if (L == NULL || L->next == NULL)
+        return L;
+
+    int size = length(L);
+
+    // Evita rotações desnecessárias
+    k = k % size;
+
+    // Se der volta completa
+    if (k == 0)
+        return L;
+
+    for (int i = 0; i < k; i++)
+    {
+        list *prev = NULL;
+        list *current = L;
+
+        while (current->next != NULL)
+        {
+            prev = current;
+            current = current->next;
+        }
+
+        prev->next = NULL;
+
+        current->next = L;
+
+        L = current;
+    }
+
+    return L;
+}
+
+void recursive_print(list *L)
+{
+    if (L == NULL)
+        return;
+
+    printf("%d ", L->value);
+
+    recursive_print(L->next);
+}
+
+void print_list(list *L)
+{
+    printf("L = { ");
+
+    recursive_print(L);
+
+    printf("}\n");
 }
 
 void print_k_list(list *L, int k)
@@ -146,23 +215,4 @@ void print_k_list(list *L, int k)
     }
 
     printf("\n");
-}
-
-void print_list_recursive(list *L)
-{
-    if (L == NULL)
-        return;
-
-    printf("%d ", L->value);
-
-    print_list_recursive(L->next);
-}
-
-void print_list(list *L)
-{
-    printf("L = { ");
-
-    print_list_recursive(L);
-
-    printf("}\n");
 }
