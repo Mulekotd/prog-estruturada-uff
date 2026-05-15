@@ -1,25 +1,25 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-struct vector_s
+typedef struct
 {
     int max;    // tamanho máximo
     int length; // tamanho usado
     int *v;     // vetor
-}; typedef struct vector_s vector_t;
+} Vector;
 
-vector_t* allocate_vector(int max);
-void print_vector(vector_t *vec);
-int max_element(vector_t *vec);
-void add_element(vector_t *vec, int element);
-void insert_element(vector_t *vec, int element, int index);
-void remove_element(vector_t *vec, int index);
-void smart_search(vector_t *vec, int element);
-void reverse(vector_t *vec, int start, int end);
-void rotate_left(vector_t *vec, int k);
-void sort(vector_t *vec);
-void check_repeated(vector_t *vec);
-void find_pairs_sums(vector_t *vec, int s);
-void delete_vector(vector_t* vec);
+Vector* allocate_vector(int max);
+void print_vector(Vector *vector);
+int max_element(Vector *vector);
+void add_element(Vector *vector, int element);
+void insert_element(Vector *vector, int element, int index);
+void remove_element(Vector *vector, int index);
+void smart_search(Vector *vector, int element);
+void reverse(Vector *vector, int start, int end);
+void rotate_left(Vector *vector, int k);
+void sort(Vector *vector);
+void check_repeated(Vector *vector);
+void find_pairs_sums(Vector *vector, int s);
+void delete_vector(Vector* vector);
 
 #endif

@@ -1,62 +1,62 @@
-#include "../include/vector.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "../include/vector.h"
 
-vector_t* allocate_vector(int max)
+Vector* allocate_vector(int max)
 {
-    vector_t *vec = malloc(sizeof(vector_t));
+    Vector *vector = malloc(sizeof(Vector));
 
-    if (!vec) return NULL;
+    if (!vector) return NULL;
 
-    vec->v = malloc(max * sizeof(int));
+    vector->v = malloc(max * sizeof(int));
 
-    if (!vec->v)
+    if (!vector->v)
     {
-        free(vec);
+        free(vector);
         return NULL;
     }
 
-    vec->max = max;
-    vec->length = 0;
+    vector->max = max;
+    vector->length = 0;
 
-    return vec;
+    return vector;
 }
 
-void print_vector(vector_t *vec)
+void print_vector(Vector *vector)
 {
-    int n = vec->length;
+    int n = vector->length;
 
     printf("Vetor (tamanho: %d) = ", n);
 
     printf("{ ");
     for (int i = 0; i < n; i++)
     {
-        if (i == (n - 1)) printf("%d", vec->v[i]);
-        else printf("%d, ", vec->v[i]);
+        if (i == (n - 1)) printf("%d", vector->v[i]);
+        else printf("%d, ", vector->v[i]);
     }
     printf(" }");
     
     printf("\n");
 }
 
-int max_element(vector_t *vec)
+int max_element(Vector *vector)
 {
-    int n = vec->length;
-    int max = vec->v[0];
+    int n = vector->length;
+    int max = vector->v[0];
 
     for (int i = 1; i < n; i++)
     {
-        if (max < vec->v[i]) max = vec->v[i];
+        if (max < vector->v[i]) max = vector->v[i];
     }
 
     return max;
 }
 
-void insert_element(vector_t *vec, int element, int index)
+void insert_element(Vector *vector, int element, int index)
 {
-    int n = vec->length;
+    int n = vector->length;
     
-    if (index < 0 || index > n || n >= vec->max)
+    if (index < 0 || index > n || n >= vector->max)
     {
         printf("Índice fora do range.\n\n");
         return;
@@ -64,34 +64,34 @@ void insert_element(vector_t *vec, int element, int index)
 
     for (int i = n; i > index; i--)
     {
-        vec->v[i] = vec->v[i - 1];
+        vector->v[i] = vector->v[i - 1];
     }
 
-    vec->v[index] = element;
-    vec->length++;
+    vector->v[index] = element;
+    vector->length++;
 }
 
-void add_element(vector_t *vec, int element)
+void add_element(Vector *vector, int element)
 {
-    int n = vec->length;
+    int n = vector->length;
 
-    if ((n + 1) > vec->max)
+    if ((n + 1) > vector->max)
     {
         printf("Excedeu o tamanho do vetor.\n\n");
         return;
     }
 
-    vec->v[n] = element;
+    vector->v[n] = element;
 
     // Aumenta o tamanho lógico do vetor
-    vec->length++;
+    vector->length++;
 }
 
-void remove_element(vector_t *vec, int index)
+void remove_element(Vector *vector, int index)
 {
-    int n = vec->length;
+    int n = vector->length;
 
-    if (index < 0 || index >= vec->length)
+    if (index < 0 || index >= vector->length)
     {
         printf("Índice fora do range.\n\n");
         return;
@@ -100,27 +100,27 @@ void remove_element(vector_t *vec, int index)
     // Desloca os elementos para a esquerda
     for (int i = index; i < n - 1; i++)
     {
-        vec->v[i] = vec->v[i + 1];
+        vector->v[i] = vector->v[i + 1];
     }
 
     // Diminui o tamanho lógico do vetor
-    vec->length--;
+    vector->length--;
 }
 
-void smart_search(vector_t *vec, int element)
+void smart_search(Vector *vector, int element)
 {
-    int n = vec->length;
+    int n = vector->length;
 
     for (int i = 0; i < n; i++)
     {
-        if (vec->v[i] == element)
+        if (vector->v[i] == element)
         {
             // Se não for o primeiro elemento, faz a transposição
             if (i > 0)
             {
-                int temp = vec->v[i];
-                vec->v[i] = vec->v[i - 1];
-                vec->v[i - 1] = temp;
+                int temp = vector->v[i];
+                vector->v[i] = vector->v[i - 1];
+                vector->v[i - 1] = temp;
             }
 
             printf("Buscar elemento %d - levou %d testes\n", element, i + 1);
@@ -131,69 +131,69 @@ void smart_search(vector_t *vec, int element)
     printf("Elemento não encontrado no vetor\n");
 }
 
-void reverse(vector_t *vec, int start, int end)
+void reverse(Vector *vector, int start, int end)
 {
     while (start < end)
     {
-        int temp = vec->v[start];
+        int temp = vector->v[start];
         
-        vec->v[start] = vec->v[end];
-        vec->v[end] = temp;
+        vector->v[start] = vector->v[end];
+        vector->v[end] = temp;
 
         start++;
         end--;
     }
 }
 
-void rotate_left(vector_t *vec, int k)
+void rotate_left(Vector *vector, int k)
 {
-    int n = vec->length;
+    int n = vector->length;
 
     if (n == 0) return;
 
     k %= n;
 
     // Rotaciona por simetria
-    reverse(vec, 0, k - 1);
-    reverse(vec, k, n - 1);
-    reverse(vec, 0, n - 1);
+    reverse(vector, 0, k - 1);
+    reverse(vector, k, n - 1);
+    reverse(vector, 0, n - 1);
 }
 
-void sort(vector_t *vec)
+void sort(Vector *vector)
 {
-    int n = vec->length;
+    int n = vector->length;
 
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = 0; j < n - i - 1; j++)
         {
-            int curr = vec->v[j];
-            int next = vec->v[j + 1];
+            int curr = vector->v[j];
+            int next = vector->v[j + 1];
 
             // Swap
             if (curr > next)
             {
-                vec->v[j] = next;
-                vec->v[j + 1] = curr;
+                vector->v[j] = next;
+                vector->v[j + 1] = curr;
             }
         }
     }
 }
 
-void check_repeated(vector_t *vec)
+void check_repeated(Vector *vector)
 {
-    int n = vec->length;
+    int n = vector->length;
     int printing = 0;
 
     printf("Duplicados = ");
 
     for (int i = 0; i < n - 1; i++)
     {
-        if (vec->v[i] == vec->v[i + 1])
+        if (vector->v[i] == vector->v[i + 1])
         {
             if (!printing)
             {
-                printf("%d ", vec->v[i]);
+                printf("%d ", vector->v[i]);
                 printing = 1;
             }
         }
@@ -204,17 +204,17 @@ void check_repeated(vector_t *vec)
     }
 }
 
-void find_pairs_sums(vector_t *vec, int s)
+void find_pairs_sums(Vector *vector, int s)
 {
-    int n = vec->length;
+    int n = vector->length;
     int max = 0;
 
     // Descobrir o maior elemento
     for (int i = 0; i < n; i++)
     {
-        if (vec->v[i] > max)
+        if (vector->v[i] > max)
         {
-            max = vec->v[i];
+            max = vector->v[i];
         }
     }
 
@@ -226,14 +226,14 @@ void find_pairs_sums(vector_t *vec, int s)
 
     // Marcar presença dos elementos
     for (int i = 0; i < n; i++)
-        aux[vec->v[i]] = 1;
+        aux[vector->v[i]] = 1;
 
     printf("Pares = ");
 
     // Econtrar os pares
     for (int i = 0; i < n; i++)
     {
-        int x = vec->v[i];
+        int x = vector->v[i];
         int y = s - x;
 
         // Verifica se y é válido e existe no vetor
@@ -244,8 +244,8 @@ void find_pairs_sums(vector_t *vec, int s)
     }
 }
 
-void delete_vector(vector_t *vec)
+void delete_vector(Vector *vector)
 {
-    free(vec->v);
-    free(vec);
+    free(vector->v);
+    free(vector);
 }

@@ -6,20 +6,20 @@ void question_1()
 {
     printf("Concatenando listas.\n");
 
-    list *L1 = NULL;
+    List *L1 = NULL;
     L1 = insert_list(L1, 8);
     L1 = insert_list(L1, 6);
     L1 = insert_list(L1, 9);
     L1 = insert_list(L1, 2);
     print_list(L1);
 
-    list *L2 = NULL;
+    List *L2 = NULL;
     L2 = insert_list(L2, 7);
     L2 = insert_list(L2, 4);
     L2 = insert_list(L2, 10);
     print_list(L2);
 
-    list *L3 = concat_list(L1, L2);
+    List *L3 = concat_list(L1, L2);
     print_list(L3);
 
     L3 = delete_list(L3);
@@ -29,7 +29,7 @@ void question_2()
 {
     printf("\nImprimindo k elementos da listas.\n");
 
-    list *L = NULL;
+    List *L = NULL;
     L = insert_list(L, 34);
     L = insert_list(L, 3);
     L = insert_list(L, 15);
@@ -52,7 +52,7 @@ void question_3()
 {
     printf("\nRemove elementos duplicados da listas.\n");
 
-    list *L = NULL;
+    List *L = NULL;
     L = insert_list(L, 33);
     L = insert_list(L, 33);
     L = insert_list(L, 33);
@@ -75,9 +75,9 @@ void question_3()
 
 void question_4()
 {
-    printf("\nRemover um elemento da list.\n");
+    printf("\nRemover um elemento da List.\n");
 
-    list *L = NULL;
+    List *L = NULL;
     L = insert_list(L, 4);
     L = insert_list(L, 4);
     L = insert_list(L, 3);
@@ -98,7 +98,7 @@ void question_5()
 {
     printf("\nMesclagem entre duas listas encadeadas.\n");
 
-    list *L1 = NULL;
+    List *L1 = NULL;
     L1 = insert_list(L1, 28);
     L1 = insert_list(L1, 15);
     L1 = insert_list(L1, 10);
@@ -106,13 +106,13 @@ void question_5()
     L1 = insert_list(L1, 2);
     print_list(L1);
 
-    list *L2 = NULL;
+    List *L2 = NULL;
     L2 = insert_list(L2, 14);
     L2 = insert_list(L2, 12);
     L2 = insert_list(L2, 7);
 
     print_list(L2);
-    list *L3 = merge_list(L1, L2);
+    List *L3 = merge_list(L1, L2);
 
     print_list(L3);
     L3 = delete_list(L3);
@@ -122,7 +122,7 @@ void question_6()
 {
     printf("\nRotaciona lista encadeada k vezes à direita.\n");
 
-    list *L = NULL;
+    List *L = NULL;
     L = insert_list(L, 5);
     L = insert_list(L, 4);
     L = insert_list(L, 3);
@@ -149,7 +149,7 @@ void challenge_1()
 {
     printf("\nPrimeiro Desafio.\n");
 
-    list *L1 = NULL;
+    List *L1 = NULL;
     L1 = insert_list(L1, 12);
     L1 = insert_list(L1, 10);
     L1 = insert_list(L1, 8);
@@ -161,7 +161,7 @@ void challenge_1()
     L1 = insert_list(L1, 1);
     print_list(L1);
 
-    list *L2 = NULL;
+    List *L2 = NULL;
     L2 = insert_list(L2, 21);
     L2 = insert_list(L2, 18);
     L2 = insert_list(L2, 15);
@@ -193,7 +193,7 @@ void challenge_2()
 {
     printf("\nSegundo desafio.\n");
 
-    list *L1 = NULL;
+    List *L1 = NULL;
     L1 = insert_list(L1, 19);
     L1 = insert_list(L1, 16);
     L1 = insert_list(L1, 14);
@@ -205,7 +205,7 @@ void challenge_2()
     L1 = insert_list(L1, 5);
     L1 = insert_list(L1, 2);
     
-    list *L2 = NULL;
+    List *L2 = NULL;
     L2 = insert_list(L2, 20);
     L2 = insert_list(L2, 18);
     L2 = insert_list(L2, 17);
@@ -217,7 +217,7 @@ void challenge_2()
     L2 = insert_list(L2, 4);
     L2 = insert_list(L2, 3);
     
-    list *L3 = NULL;
+    List *L3 = NULL;
     L3 = merge_list(L1, L2);
     L3 = remove_duplicates(L3);
     L3 = remove_element(L3, 7);

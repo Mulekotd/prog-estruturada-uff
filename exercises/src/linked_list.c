@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../include/linked_list.h"
 
-int length(list *L)
+int length(List *L)
 {
     if (L == NULL)
         return 0;
@@ -10,16 +10,16 @@ int length(list *L)
     return 1 + length(L->next);
 }
 
-list *allocate_node()
+List *allocate_node()
 {
-    list *aux;
-    aux = (list*) malloc (sizeof(list));
+    List *aux;
+    aux = (List*) malloc (sizeof(List));
     aux->next = NULL;
 
     return aux;
 }
 
-list *delete_list(list *L)
+List *delete_list(List *L)
 {
     if (L == NULL)
         return NULL;
@@ -31,7 +31,7 @@ list *delete_list(list *L)
     return NULL;
 }
 
-list *remove_duplicates(list *L)
+List *remove_duplicates(List *L)
 {
     if (L == NULL || L->next == NULL)
         return L;
@@ -39,7 +39,7 @@ list *remove_duplicates(list *L)
     // Remove duplicata consecutiva
     if (L->value == L->next->value)
     {
-        list *duplicate = L->next;
+        List *duplicate = L->next;
 
         L->next = duplicate->next;
 
@@ -53,7 +53,7 @@ list *remove_duplicates(list *L)
     return L;
 }
 
-list *remove_element(list *L, int element)
+List *remove_element(List *L, int element)
 {
     // Caso base
     if (L == NULL)
@@ -62,7 +62,7 @@ list *remove_element(list *L, int element)
     // Se o nó atual deve ser removido
     if (L->value == element)
     {
-        list *temp = L->next;
+        List *temp = L->next;
 
         free(L);
 
@@ -75,9 +75,9 @@ list *remove_element(list *L, int element)
     return L;
 }
 
-list *insert_list(list *L, int element)
+List *insert_list(List *L, int element)
 {
-    list *node = allocate_node();
+    List *node = allocate_node();
     node->value = element;
     node->next = L;
 
@@ -86,7 +86,7 @@ list *insert_list(list *L, int element)
     return L;
 }
 
-list *concat_list(list *L1, list *L2)
+List *concat_list(List *L1, List *L2)
 {
     if (L1 == NULL)
         return L2;
@@ -96,7 +96,7 @@ list *concat_list(list *L1, list *L2)
     return L1;
 }
 
-list *merge_list(list *L1, list *L2)
+List *merge_list(List *L1, List *L2)
 {
     // Casos base
     if (L1 == NULL)
@@ -118,7 +118,7 @@ list *merge_list(list *L1, list *L2)
     }
 }
 
-list *rotate_list(list *L, int k)
+List *rotate_list(List *L, int k)
 {
     if (k <= 0)
     {
@@ -140,8 +140,8 @@ list *rotate_list(list *L, int k)
 
     for (int i = 0; i < k; i++)
     {
-        list *prev = NULL;
-        list *current = L;
+        List *prev = NULL;
+        List *current = L;
 
         while (current->next != NULL)
         {
@@ -159,7 +159,7 @@ list *rotate_list(list *L, int k)
     return L;
 }
 
-void recursive_print(list *L)
+void recursive_print(List *L)
 {
     if (L == NULL)
         return;
@@ -169,7 +169,7 @@ void recursive_print(list *L)
     recursive_print(L->next);
 }
 
-void print_list(list *L)
+void print_list(List *L)
 {
     printf("L = { ");
 
@@ -178,13 +178,13 @@ void print_list(list *L)
     printf("}\n");
 }
 
-void print_k_list(list *L, int k)
+void print_k_list(List *L, int k)
 {
     if (L == NULL || k <= 0)
         return;
 
-    list *front = L;
-    list *back = L;
+    List *front = L;
+    List *back = L;
 
     // Avança front k posições
     for (int i = 0; i < k; i++)

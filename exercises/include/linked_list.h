@@ -1,20 +1,27 @@
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
+
 struct Node
 {
-	int value;
-	struct Node *next;
-}; typedef struct Node list;
+    int value;
+    struct Node *next;
+};
 
-int length(list *L);
+typedef struct Node List;
 
-list *allocate_node(void);
-list *delete_list(list *L);
-list *remove_duplicates(list *L);
-list *remove_element(list *L, int element);
-list *insert_list(list *L, int element);
-list *concat_list(list *L1, list *L2);
-list *merge_list(list *L1, list *L2);
-list *rotate_list(list *L, int k);
+int length(List *L);
 
-void recursive_print(list *L);
-void print_list(list *L);
-void print_k_list(list *L, int k);
+List *allocate_node(void);
+List *delete_list(List *L);
+List *remove_duplicates(List *L);
+List *remove_element(List *L, int element);
+List *insert_list(List *L, int element);
+List *concat_list(List *L1, List *L2);
+List *merge_list(List *L1, List *L2);
+List *rotate_list(List *L, int k);
+
+void recursive_print(List *L);
+void print_list(List *L);
+void print_k_list(List *L, int k);
+
+#endif
