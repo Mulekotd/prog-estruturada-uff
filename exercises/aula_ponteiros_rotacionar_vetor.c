@@ -17,7 +17,7 @@ int main()
 
     scanf("%d %d", &n, &k);
 
-    int *vector = (int*)malloc(n * sizeof(int));
+    int *vector = (int*) malloc(n * sizeof(int));
 
     for (int i = 0; i < n; i++)
         scanf("%d", &vector[i]);

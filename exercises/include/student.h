@@ -10,6 +10,6 @@ typedef struct {
 } Student;
 
 float average(Student *student);
-void print_student(Student *student);
+void printStudent(Student *student);
 
 #endif

@@ -3,19 +3,19 @@
 
 int main()
 {
-    point_t *p = create_point(2.0, 1.0);
-    point_t *q = create_point(3.4, 2.1);
-    point_t *ps = multiple_sum(p, q);
+    Point *p = createPoint(2.0, 1.0);
+    Point *q = createPoint(3.4, 2.1);
+    Point *ps = multipleSum(p, q);
 
-    print_point(p);
-    print_point(q);
-    print_point(ps);
+    printPoint(p);
+    printPoint(q);
+    printPoint(ps);
 
     float d = distance(p, q);
     printf("Distância entre pontos: %f\n", d);
 
-    delete_point(p);
-    delete_point(q);
+    deletePoint(p);
+    deletePoint(q);
 
     return 0;
 }

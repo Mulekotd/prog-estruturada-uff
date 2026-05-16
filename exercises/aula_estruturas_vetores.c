@@ -5,14 +5,15 @@
 
 int main()
 {
-    vector_t *vec = allocate_vector(MAX);
+    Vector *vector = allocateVector(MAX);
 
     for (int i = 0; i < MAX; i++)
-        add_element(vec, i*10);
-    print_vector(vec);
+        addElement(vector, i*10);
 
-    printf("Elemento máximo: %d\n", max_element(vec));
-    delete_vector(vec);
+    printVector(vector);
+
+    printf("Elemento máximo: %d\n", maxElement(vector));
+    deleteVector(vector);
 
     return 0;
 }

@@ -18,7 +18,7 @@ int main()
 
     do scanf("%d", &n); while (n <= 0);
 
-    int *vector = (int*)malloc(n * sizeof(int));
+    int *vector = (int*) malloc(n * sizeof(int));
 
     if (vector == NULL)
         return 1;

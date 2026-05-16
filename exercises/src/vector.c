@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "../include/vector.h"
 
-Vector* allocate_vector(int max)
+Vector* allocateVector(int max)
 {
-    Vector *vector = malloc(sizeof(Vector));
+    Vector *vector = (Vector*) malloc(sizeof(Vector));
 
     if (!vector) return NULL;
 
@@ -22,7 +22,7 @@ Vector* allocate_vector(int max)
     return vector;
 }
 
-void print_vector(Vector *vector)
+void printVector(Vector *vector)
 {
     int n = vector->length;
 
@@ -39,7 +39,7 @@ void print_vector(Vector *vector)
     printf("\n");
 }
 
-int max_element(Vector *vector)
+int maxElement(Vector *vector)
 {
     int n = vector->length;
     int max = vector->v[0];
@@ -52,7 +52,7 @@ int max_element(Vector *vector)
     return max;
 }
 
-void insert_element(Vector *vector, int element, int index)
+void insertElement(Vector *vector, int element, int index)
 {
     int n = vector->length;
     
@@ -71,7 +71,7 @@ void insert_element(Vector *vector, int element, int index)
     vector->length++;
 }
 
-void add_element(Vector *vector, int element)
+void addElement(Vector *vector, int element)
 {
     int n = vector->length;
 
@@ -87,7 +87,7 @@ void add_element(Vector *vector, int element)
     vector->length++;
 }
 
-void remove_element(Vector *vector, int index)
+void removeElement(Vector *vector, int index)
 {
     int n = vector->length;
 
@@ -107,7 +107,7 @@ void remove_element(Vector *vector, int index)
     vector->length--;
 }
 
-void smart_search(Vector *vector, int element)
+void smartSearch(Vector *vector, int element)
 {
     int n = vector->length;
 
@@ -145,7 +145,7 @@ void reverse(Vector *vector, int start, int end)
     }
 }
 
-void rotate_left(Vector *vector, int k)
+void rotateLeft(Vector *vector, int k)
 {
     int n = vector->length;
 
@@ -180,7 +180,7 @@ void sort(Vector *vector)
     }
 }
 
-void check_repeated(Vector *vector)
+void checkRepeated(Vector *vector)
 {
     int n = vector->length;
     int printing = 0;
@@ -204,7 +204,7 @@ void check_repeated(Vector *vector)
     }
 }
 
-void find_pairs_sums(Vector *vector, int s)
+void findPairsSums(Vector *vector, int s)
 {
     int n = vector->length;
     int max = 0;
@@ -244,7 +244,7 @@ void find_pairs_sums(Vector *vector, int s)
     }
 }
 
-void delete_vector(Vector *vector)
+void deleteVector(Vector *vector)
 {
     free(vector->v);
     free(vector);

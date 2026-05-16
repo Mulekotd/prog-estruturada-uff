@@ -6,6 +6,6 @@ typedef struct {
     int mass;
 } Isotope;
 
-int validate_isotope(char s, int m, int length, Isotope v[]);
+int validateIsotope(char s, int m, int length, Isotope v[]);
 
 #endif

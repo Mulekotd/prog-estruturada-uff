@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../include/isotopes.h"
 
-int validate_isotope(char s, int m, int length, Isotope v[])
+int validateIsotope(char s, int m, int length, Isotope v[])
 {
     if (length != 0) {
         for (int i = 0; i < length; i++)

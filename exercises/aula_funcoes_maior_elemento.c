@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int min(int *vector, int n)
 {
     int min = vector[0];

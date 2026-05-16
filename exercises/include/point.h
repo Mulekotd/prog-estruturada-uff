@@ -7,10 +7,10 @@ typedef struct
     float y;
 } Point;
 
-Point *create_point(float x, float y);
-void print_point(Point *p);
-void delete_point(Point *p);
-Point *multiple_sum(Point *p1, Point *p2);
+Point *createPoint(float x, float y);
+void printPoint(Point *p);
+void deletePoint(Point *p);
+Point *multipleSum(Point *p1, Point *p2);
 float distance(Point *p1, Point *p2);
 
 #endif

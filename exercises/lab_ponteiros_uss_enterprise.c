@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 6
 #define M 6
+#define N 6
 
-int **allocateMatrix(int n, int m)
+int **allocateMatrix(int m, int n)
 {
     int **matrix = (int **) malloc(n * sizeof(int *));
 
@@ -14,9 +14,9 @@ int **allocateMatrix(int n, int m)
     return matrix;
 }
 
-void freeMatrix(int **matrix, int n)
+void freeMatrix(int **matrix, int m)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
         free(matrix[i]);
 
     free(matrix);
@@ -26,23 +26,23 @@ int countStrongNeighbors(int **A, int i, int j)
 {
     int count = 0;
 
-    if (i > 0 && A[i-1][j] >= 7)   count++; // cima
-    if (i < N-1 && A[i+1][j] >= 7) count++; // baixo
-    if (j > 0 && A[i][j-1] >= 7)   count++; // esquerda
-    if (j < M-1 && A[i][j+1] >= 7) count++; // direita
+    if (i > 0 && A[i-1][j] >= 7)       count++; // cima
+    if (i < M - 1 && A[i + 1][j] >= 7) count++; // baixo
+    if (j > 0 && A[i][j - 1] >= 7)     count++; // esquerda
+    if (j < N - 1 && A[i][j + 1] >= 7) count++; // direita
 
     return count;
 }
 
 void simulate(int **A)
 {
-    int **B = allocateMatrix(N, M);
+    int **B = allocateMatrix(M, N);
 
     for (int round = 0; round < 5; round++)
     {
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < M; i++)
         {
-            for (int j = 0; j < M; j++)
+            for (int j = 0; j < N; j++)
             {
                 int v = A[i][j];
                 int strongs = countStrongNeighbors(A, i, j);
@@ -66,8 +66,8 @@ void simulate(int **A)
         }
 
         // Copiar B → A
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < M; j++)
+        for (int i = 0; i < M; i++)
+            for (int j = 0; j < N; j++)
                 A[i][j] = B[i][j];
     }
 
@@ -76,9 +76,9 @@ void simulate(int **A)
 
 int main()
 {
-    int **A = allocateMatrix(N, M);
+    int **A = allocateMatrix(M, N);
 
-    int values[N][M] = {
+    int values[M][N] = {
         { 0, 9, 1, 8, 2, 10 },
         { 8, 2, 9, 1, 8, 0 },
         { 1, 10, 3, 9, 2, 8 },
@@ -87,8 +87,8 @@ int main()
         { 10, 1, 9, 0, 8, 2 }
     };
 
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < M; j++)
+    for (int i = 0; i < M; i++)
+        for (int j = 0; j < N; j++)
             A[i][j] = values[i][j];
 
     simulate(A);
@@ -99,7 +99,7 @@ int main()
 
     printf("Soma da primeira linha apos 5 rodadas: %d\n", sum);
 
-    freeMatrix(A, N);
+    freeMatrix(A, M);
 
     return 0;
 }

@@ -4,9 +4,11 @@ Repositório para a disciplina de Programação Estruturada onde tem a resoluç�
 
 ## Build
 
-Exemplo de compilação de código utilizando o GCC.
+Para compilar todos os exercícios rode os seguintes comandos:
 
-```bash
-gcc -Wall exercises/decisao_verificar_triangulo.c -o build/decisao_verificar_triangulo
-gcc -Wall exercises/decisao_raizes.c -o build/decisao_raizes -lm
+```sh
+mkdir -p build
+cd build/
+cmake ..
+make
 ```

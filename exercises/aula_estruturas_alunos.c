@@ -10,7 +10,7 @@ int main()
     scanf("%d", &number);
 
     // Alocação dinâmica
-    student_t *c = malloc(number * sizeof(student_t));
+    Student *c = (Student*) malloc(number * sizeof(Student));
 
     if (c == NULL)
     {
@@ -40,7 +40,7 @@ int main()
     {
         if (average(&c[i]) >= 6.0)
         {
-            print_student(&c[i]);
+            printStudent(&c[i]);
         }
     }
 

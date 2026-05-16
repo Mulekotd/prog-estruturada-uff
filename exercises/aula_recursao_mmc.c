@@ -2,10 +2,8 @@
 
 int mmc(int n1, int n2, int cand)
 {
-    if ((cand % n1 == 0) && (cand % n2 == 0))
-        return cand;
-    else 
-        return mmc(n1, n2, cand + 1);
+    if ((cand % n1 == 0) && (cand % n2 == 0)) return cand;
+    else return mmc(n1, n2, cand + 1);
 }
 
 int main()

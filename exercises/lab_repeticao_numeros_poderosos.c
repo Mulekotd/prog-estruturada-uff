@@ -13,12 +13,12 @@ int main()
 
         while (temp != 0)
         {
-            int dig = temp % 10;
+            int digit = temp % 10;
 
             // Calcula fatorial do dígito
             int factorial = 1;
             
-            for (int i = 1; i <= dig; i++)
+            for (int i = 1; i <= digit; i++)
                 factorial *= i;
 
             sum += factorial;

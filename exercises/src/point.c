@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../include/point.h"
 
-Point *create_point(float x, float y)
+Point *createPoint(float x, float y)
 {
     Point *point = (Point*) malloc(sizeof(Point));
 
@@ -18,19 +18,19 @@ Point *create_point(float x, float y)
     return point;
 }
 
-void print_point(Point *p)
+void printPoint(Point *p)
 {
     printf("Ponto: (%f, %f)\n", p->x, p->y);
 }
 
-void delete_point(Point *p)
+void deletePoint(Point *p)
 {
     free(p);
 }
 
-Point *multiple_sum(Point *p1, Point *p2)
+Point *multipleSum(Point *p1, Point *p2)
 {
-    return create_point(p1->x + p2->x, p1->y + p2->y);
+    return createPoint(p1->x + p2->x, p1->y + p2->y);
 }
 
 float distance(Point *p1, Point *p2)

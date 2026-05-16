@@ -1,6 +1,9 @@
 # Ignorar arquivos de configuração do Visual Studio Code
 .vscode/
 
-# Arquivos de build
+# Ignorar diretórios de build
 build/
 dist/
+
+# Ignorar arquivos executáveis
+*.exe

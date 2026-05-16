@@ -59,6 +59,7 @@ int main() {
     {
         for (int j = 0; j < COLS; j++)
             printf("%3d", M[i][j]);
+
         printf("\n");
     }
 

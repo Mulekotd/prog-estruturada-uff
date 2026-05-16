@@ -7,7 +7,7 @@ float average(Student *student)
     return (student->p1 + student->p2 + student->p3) / 3;
 }
 
-void print_student(Student *student)
+void printStudent(Student *student)
 {
     printf("%s (Matrícula: %s)\n", student->name, student->registry);
     printf("Média = %.2f\n\n", average(student));

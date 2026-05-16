@@ -26,8 +26,7 @@ int main()
         
         for (int j = 0; j < m; j++)
         {
-            if ((i == j && matrix[i][j] != 1) ||
-                (i != j && matrix[i][j] != 0))
+            if ((i == j && matrix[i][j] != 1) || (i != j && matrix[i][j] != 0))
             {
                 isIdentity = 0;
                 break;

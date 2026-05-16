@@ -15,6 +15,7 @@ void freeMatrix(int **matrix, int n)
 {
     for (int i = 0; i < n; i++)
         free(matrix[i]);
+
     free(matrix);
 }
 
@@ -193,7 +194,7 @@ void menu()
     printf("2 - Easiest city to reach\n");
     printf("3 - Check route\n");
     printf("4 - Find path\n");
-    printf("10 - Exit\n");
+    printf("5 - Exit\n");
 }
 
 int main()
@@ -227,7 +228,7 @@ int main()
                 findPath(matrix, n);
                 break;
 
-            case 10:
+            case 5:
                 printf("Exiting...\n");
                 break;
 
@@ -235,7 +236,7 @@ int main()
                 printf("Invalid option!\n");
         }
 
-    } while(option != 10);
+    } while(option != 5);
 
     freeMatrix(matrix, n);
 

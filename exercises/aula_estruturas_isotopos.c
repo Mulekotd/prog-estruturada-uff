@@ -11,7 +11,7 @@ int main()
     char simble;
     int mass, count = 0;
 
-    isotope vec[n];
+    Isotope vector[n];
 
     for (int i = 0; i < n; i++) {
         printf("Simbolo = ");
@@ -19,16 +19,16 @@ int main()
         printf("Massa = ");
         scanf("%d", &mass);
 
-        if(validate_isotope(simble, mass, count, vec)) {
-            vec[count].simble = simble;
-            vec[count].mass = mass;
+        if(validateIsotope(simble, mass, count, vector)) {
+            vector[count].simble = simble;
+            vector[count].mass = mass;
             count++;
         }
     }
 
     printf("\nDiferentes = %d\n", count);
     for (int i = 0; i < count; i++)
-        printf("%c) %d\n", vec[i].simble, vec[i].mass);
+        printf("%c) %d\n", vector[i].simble, vector[i].mass);
 
     return 0;
 }
